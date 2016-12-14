@@ -1,0 +1,37 @@
+{
+    "name": "formValidation-email",
+    "version": "0.0.1",
+    "description": "An email rule for the DEGJS formValidation module.",
+    "keywords": [
+        "DEGJS",
+        "formValidation"
+    ],
+    "author": {
+        "name": "Aaron Ladage",
+        "email": "aladage@degdigital.com",
+        "url": "http://aaronladage.com"
+    },
+    "contributors": [
+        {
+            "name": "Ryan Heap",
+            "email": "rheap@degdigital.com"
+        }
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DEGJS/formValidation-email.git"
+    },
+    "bugs": "https://github.com/DEGJS/formValidation-email/issues",
+    "jspm": {
+        "registry": "jspm",
+        "format": "es6",
+        "main": "email.js",
+        "directories": {
+            "lib": "src"
+        },
+        "dependencies": {
+            "DEGJS/formValidation": "github:DEGJS/formValidation@^0.0.1"
+        }
+    }
+}

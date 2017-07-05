@@ -1,61 +1,51 @@
-let email = function() {
+const email = (options) => {
 
-	let messages = {
-			invalidFormatMsg: {
-				attribute: 'data-validation-email-message',
-				message: 'Please enter a valid email address.'
-			}
-		},
-		events = [
+	const defaults = {
+		message: 'Please enter a valid email address.',
+		messageAttr: 'data-validation-email-message',
+		pattern: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+		events: [
 			'focusout',
 			'submit'
-		];
-
-	function getEvents() {
-		return events;
+		]
 	};
+	const settings = Object.assign({}, defaults, options);
 
-	function isRelevant(containerEl, inputEls) {
-		return inputEls.every(function(el) {
-			return el.getAttribute('type') === 'email');
-		});
-	};
-
-	function validate(matchingField) {
-		return new Promise(function(resolve, reject) {
-			let inputEls = matchingField.inputEls;
-			if ((inputEls) && (inputEls.length > 0)) {
-				let input = inputEls[0],
-					pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-				if((input.value) && (input.value.length > 0)) {
-					if (pattern.test(input.value)) {
-						resolve({
-							valid: true
-						});
-					} else {
-						resolve({
-							valid: false,
-							message: messages.invalidFormatMsg,
-							matchingField: matchingField
-						});
-					}
-				} else {
-					resolve({
-						valid: true
-					});
-				}
-			} else {
-				reject('no inputs');
-			}			
-		});
-	};
-
-	return {
-		events: getEvents,
-		isRelevant: isRelevant,
-		validate: validate
+	const getSettings = () => {
+		return settings;
 	}
 
-};
+	const isRelevant = (field) => {
+		return field.inputEls.some(el => el.getAttribute('type') === 'email');
+	}
+
+	const validate = (field) => {
+		return new Promise(function(resolve, reject) {
+			if (field.inputEls) {
+				resolve({
+					valid: field.inputEls.some(el => el.value.length > 0 && settings.pattern.test(el.value))
+				});
+			} else {
+				reject('email: No inputs set.');
+			}			
+		});
+	}
+
+	const postprocessMessage = (msg) => {
+		if (settings.postprocessMessage && typeof settings.postprocessMessage === 'function') {
+			return settings.postprocessMessage(msg);
+		} else {
+			return msg;
+		}
+	}
+
+	return {
+		settings: getSettings(),
+		isRelevant: isRelevant,
+		validate: validate,
+		postprocessMessage: postprocessMessage
+	};
+
+}
 
 export default email;

@@ -39,7 +39,7 @@ Optionally, default rule settings can be overridden by instantiating the rule as
 let validationOptions = {
     rules: [
         email({
-        	message: 'This message will override the default rule message.',
+            message: 'This message will override the default rule message.',
             events: [
                 'focusout',
                 'submit'

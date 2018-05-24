@@ -1,6 +1,6 @@
 {
     "name": "formValidation-email",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "An email rule for the DEGJS formValidation module.",
     "keywords": [
         "DEGJS",

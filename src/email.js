@@ -23,7 +23,7 @@ const email = (options) => {
 		return new Promise(function(resolve, reject) {
 			if (field.inputEls) {
 				resolve({
-					valid: field.inputEls.some(el => el.value.length > 0 && settings.pattern.test(el.value))
+					valid: field.inputEls.some(el => el.value.length === 0 || (el.value.length > 0 && settings.pattern.test(el.value)))
 				});
 			} else {
 				reject('email: No inputs set.');

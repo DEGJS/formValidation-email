@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- node
+cache:
+  directories:
+  - node_modules
+deploy:
+  provider: npm
+  email: scheul93@gmail.com
+  api_key:
+    secure: dmz6noS8zIxMEoS6JRmvuYDqTcGLW5MhzbZszyFb6Cmm/b2JpLERsTfaH5MNuPdsiq5m66ORqdY99oXnRMX32u+5cuBMb0rNWnI9RtNi8xYA84QP3HbmF3gNS3Z/D2zWH3wM2vn7L68gF6pmgwSMhAY759LNMYKreeACWzSRHm/ZV6AfJvvg3TJc8/jm+qXzeFsjqw4ViIsK08rcaag+rv7MXJcmEAgkTpYvh6xb8N8FjX946zRcH5BvPhTF+LTBaB+PN7ezu8dxpKmtEnV/McE0suDGuvzZr6bnH7fWy8rYPYCcW72geiDuZn0r6I002JSmLwoevjw17xQNHLDKfmAF2LIwQeQHSdlu7xCL6yeBZXxSxwgZly2jEMW8uDVgbrJ44XfjOJEi0hcQcNIpH4uTRpATvaKYOHRab1fA5ncYkk/t0doPKAieFN+r3ElORBTsAru3b04KURVtuhV0gg4R04O7J9RYp7B5jf4/EJVKnclqyu4GkYEObntonZdZ3fXCI5y9gPn37+OteExJfCNodStN9cVeS2ipVrzR+6NJHlVKCFES/pKb2WtyvoSbAV3XSZsoADN4uJmPrCmkfIZZXvfXSYqhkNL/X6DMVoFdu+tS/zR2yz62kAJ0JzYYPbStIJn1xK2uOmuKbvcN81GRmaOb+8b8ozWLWZlQK/s=
+  on:
+    tags: true
+    branch: master
+    repo: DEGJS/formValidation-email

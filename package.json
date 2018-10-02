@@ -1,6 +1,6 @@
 {
     "name": "@degjs/form-validation-email",
-    "version": "2.0.2",
+    "version": "2.0.0",
     "description": "An email rule for the DEGJS formValidation module.",
     "keywords": [
         "DEGJS",

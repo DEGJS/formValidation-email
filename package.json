@@ -1,10 +1,12 @@
 {
-    "name": "formValidation-email",
-    "version": "1.0.1",
+    "name": "@degjs/form-validation-email",
+    "version": "2.0.2",
     "description": "An email rule for the DEGJS formValidation module.",
     "keywords": [
         "DEGJS",
-        "formValidation"
+        "formValidation",
+        "forms",
+        "validation"
     ],
     "author": {
         "name": "Aaron Ladage",
@@ -23,15 +25,34 @@
         "url": "https://github.com/DEGJS/formValidation-email.git"
     },
     "bugs": "https://github.com/DEGJS/formValidation-email/issues",
-    "jspm": {
-        "registry": "jspm",
-        "format": "es6",
-        "main": "email.js",
-        "directories": {
-            "lib": "src"
-        },
-        "peerDependencies": {
-            "DEGJS/formValidation": "github:DEGJS/formValidation@^1.0.0"
-        }
+    "files": [
+        "src"
+    ],
+    "main": "src/email.js",
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "test": "jest"
+    },
+    "peerDependencies": {
+        "@degjs/form-validation": "^3.0.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "babel-core": "^7.0.0-bridge.0",
+        "babel-jest": "^23.6.0",
+        "jest": "^23.6.0"
+    },
+    "jest": {
+        "testPathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
     }
 }

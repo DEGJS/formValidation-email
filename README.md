@@ -1,5 +1,5 @@
 # formValidation-email
-[![Build Status](https://travis-ci.com/DEGJS/formValidation-email.svg?branch=master)](https://travis-ci.com/DEGJS/formValidation-email)
+![Run Tests](https://github.com/DEGJS/formValidation-email/workflows/Run%20Tests/badge.svg)
 
 An email rule module for the DEGJS [formValidation](https://github.com/DEGJS/formValidation) module.
 
